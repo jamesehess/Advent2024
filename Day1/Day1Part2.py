@@ -1,6 +1,6 @@
 # -----------------------
 #   Advent of Code 2024
-#   Day 1 Part 1
+#   Day 1 Part 2
 #   Author: James Hess
 # -----------------------
 
@@ -19,13 +19,13 @@ for line in lines:
     firstlist.append(int(values[0]))
     secondlist.append(int(values[1]))
 
-firstlist.sort()
-secondlist.sort()
+scores = []
 
-distances = []
+for firstvalue in firstlist:
+    count = 0
+    for secondvalue in secondlist:
+        if firstvalue == secondvalue:
+            count += 1
+    scores.append(firstvalue*count)
 
-
-for x in range(len(firstlist)):
-    distances.append(abs(firstlist[x]-secondlist[x]))
-
-print(sum(distances))
+print(sum(scores))
